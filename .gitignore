@@ -1,0 +1,6 @@
+target/
+node_modules/
+*.log
+events.log
+placement-log.jsonl
+.env

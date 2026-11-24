@@ -1,0 +1,30 @@
+[package]
+name = "cp3-app"
+version = "0.1.0"
+description = "Tauri spike: global hotkeys and text placement (clipboard vs Unicode input)"
+authors = ["Kemal (KarıncaAI)"]
+edition = "2021"
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "cp3_app_lib"
+# GNU toolchain spike: desktop build uses rlib only. A cdylib (DLL) made GNU ld fail with
+# "export ordinal too large" (Tauri's large dependency tree exceeds the auto-export count);
+# cdylib/staticlib are only needed for mobile targets.
+crate-type = ["rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Crates chosen for the spike
+tauri-plugin-global-shortcut = "2"   # official Tauri v2 plugin: global hotkeys based on RegisterHotKey
+arboard = "3"                        # read/write/restore the clipboard (method 1)
+enigo = "0.3"                        # SendInput wrapper: Ctrl+V (method 1) + KEYEVENTF_UNICODE text (method 2)

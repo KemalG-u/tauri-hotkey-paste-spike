@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placement spike</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>Placement spike</h1>
+      <p>Global hotkeys and text placement (no speech recognition).</p>
+
+      <div class="row">
+        <button id="btn-clip" type="button">Place: clipboard + Ctrl+V</button>
+        <button id="btn-uni" type="button">Place: Unicode input</button>
+        <button id="btn-log" type="button">Read log</button>
+      </div>
+
+      <p><b>Global hotkeys:</b> Ctrl+Alt+D = clipboard + Ctrl+V, Ctrl+Alt+U = Unicode input.
+      Click into a target text field first, then press the hotkey.</p>
+
+      <p id="status"></p>
+      <pre id="log"></pre>
+    </main>
+  </body>
+</html>
